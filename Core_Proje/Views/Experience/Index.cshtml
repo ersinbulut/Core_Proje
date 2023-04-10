@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header pb-0">
+    <h6>Deneyim Listesi Tablosu</h6>
+</div>
+<div class="card-body px-0 pt-0 pb-2">
+    <div class="table-responsive p-0">
+        <table class="table align-items-center mb-0">
+            <thead>
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Başlık</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tarih</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sil</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Düzenle</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.ExperienceID
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                           @item.Date
+                        </td>
+                        <td><a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Experience/EditExperience/@item.ExperienceID" class="btn btn-success">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Experience/AddExperience" class="btn btn-primary">Yeni Deneyim Ekle</a>
+    </div>
+</div>

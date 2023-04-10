@@ -26,8 +26,8 @@ namespace Core_Proje.Controllers
         }
         public IActionResult DeleteSkill(int id)
         {
-            var value = skillManager.TGetByID(id);
-            skillManager.TDelete(value);
+            var values = skillManager.TGetByID(id);
+            skillManager.TDelete(values);
             return RedirectToAction("Index");
         }
         public IActionResult EditSkill(int id)
